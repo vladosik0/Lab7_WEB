@@ -47,13 +47,11 @@ const images = [
 ];
 
 const galleryContainer = document.querySelector('.gallery');
-
 images.forEach(({ preview, original, description }) => {
     const listItem = document.createElement('li');
     const link = document.createElement('a');
     link.href = original;
     link.dataset.source = original;
-    link.classList.add('gallery__link');
     
     const img = document.createElement('img');
     img.src = preview;
@@ -63,7 +61,6 @@ images.forEach(({ preview, original, description }) => {
     listItem.appendChild(link);
     galleryContainer.appendChild(listItem);
 });
-
 // Функція для відкриття модального вікна
 function openModal(event) {
     event.preventDefault();
@@ -77,9 +74,7 @@ function openModal(event) {
     const instance = basicLightbox.create(`
         <img src="${largeImageURL}" width="800" height="600">
     `);
-
     instance.show();
 }
-
 // Додаємо обробник подій для делегування
 galleryContainer.addEventListener('click', openModal);
